@@ -6,8 +6,16 @@ on:
       - main
 
 jobs:
-  welcome:
+  connection_test:
     runs-on: ubuntu-latest
     steps:
-      - name: test step
-        run: echo "CI/CD test"
+      - name: repo code download
+        uses: actions/checkout@v4
+
+      - name: login to azure
+        uses: azure/login@v2
+        with:
+          creds: ${{secrets.AZURE_CREDENTIALS}}
+
+      - name: connection check
+        run: az account show
