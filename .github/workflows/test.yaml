@@ -20,7 +20,12 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Terraform init
-        run: terraform init
+        run: |
+          terraform init \
+            -backend-config="resource_group_name=rg-terraform-state" \
+            -backend-config="storage_account_name=rmst1377hjcvkx" \
+            -backend-config="container_name=tfstate" \
+            -backend-config="key=prod.terraform.tfstate"
 
       - name: Terraform plan
         run: terraform plan -out=tfplan
