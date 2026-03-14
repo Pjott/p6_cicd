@@ -9,3 +9,7 @@ variable "azure_region" {
 variable "cluster_name" {
   type = string
 }
+
+variable "kubernetes_vm_size" {
+  type = string
+}

@@ -9,4 +9,5 @@ module "aks_cluster" {
   rg_name   = module.resource_group.rg_name
   location  = var.azure_region
   aks_name  = var.cluster_name
+  node_vm_size = var.kubernetes_vm_size
 }
