@@ -5,3 +5,7 @@ variable "resource_group_name" {
 variable "azure_region" {
   type = string
 }
+
+variable "cluster_name" {
+  type = string
+}
